@@ -20,7 +20,7 @@ RUN npm install -g @angular/cli --force
 COPY . .
 
 # Build frontend
-RUN ng build --base-href
+# RUN ng build --base-href
 
 # Stage 2: Production-ready image with Apache
 # FROM httpd:2
