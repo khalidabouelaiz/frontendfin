@@ -23,14 +23,14 @@ COPY . .
 RUN ng build --base-href
 
 # Stage 2: Production-ready image with Apache
-FROM httpd:2
+# FROM httpd:2
 
 # Copy built files from the builder stage to Apache's document root
-COPY --from=builder /app/dist/ /usr/local/apache2/htdocs/
+# COPY --from=builder /app/dist/ /usr/local/apache2/htdocs/
 
 # Expose port (if necessary)
 EXPOSE 4200
 
 # Start Apache web server
-CMD ["httpd-foreground"]
+CMD ["ng", "serve"]
 
