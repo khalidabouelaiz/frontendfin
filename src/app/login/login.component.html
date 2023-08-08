@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta
+      name="keywords"
+      content="concours de thé, jeu de thé, thé, concours"
+    />
+    <meta
+      name="description"
+      content="Participez à notre jeu de concours de thé pour gagner des cadeaux incroyables."
+    />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>PFE</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light custom-bg fixed-top">
+      <div class="container">
+        <a class="navbar-brand custom-color">Jeu Concours de Thé</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link custom-color" (click)="ondebut()">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link custom-color" (click)="onabout()">A propos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br />
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModalCenter"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title" id="exampleModalLongTitle">
+              VOUS AVEZ UN PROBLÈME !!!!!
+            </h1>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true" (click)="onCloseButtonClick()"
+                >&times;</span
+              >
+            </button>
+          </div>
+          <div class="modal-body">
+            SALUT VOTRE MOT DE PASSE OU EMAIL N'EST PAS VALIDE ET VEUILLEZ
+            RÉESSAYER
+          </div>
+          <div class="modal-footer">
+            <button
+              (click)="onCloseButtonClick()"
+              type="button"
+              class="btn btn-secondary"
+            >
+              QUITTER
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form
+      #f="ngForm"
+      (ngSubmit)="OnSubmit(f.value)"
+      [formGroup]="loginUserForm"
+    >
+      <section class="vh-100">
+        <div class="container py-5 h-100">
+          <div
+            class="row d-flex justify-content-center align-items-center h-100"
+          >
+            <div
+              class="col-12 col-md-8 col-lg-6 col-xl-5"
+              style="background: transparent"
+            >
+              <div class="card shadow-2-strong" style="border-radius: 3rem">
+                <div class="card-body p-5 text-center">
+                  <h2 class="mb-5">Identification</h2>
+
+                  <div class="form-outline mb-4">
+                    <input
+                      type="email"
+                      id="typeEmailX-2"
+                      formControlName="email"
+                      class="form-control form-control-lg"
+                    />
+                    <label class="form-label" for="typeEmailX-2">Email</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input
+                      type="password"
+                      id="typePasswordX-2"
+                      formControlName="password"
+                      class="form-control form-control-lg"
+                    />
+                    <label class="form-label" for="typePasswordX-2"
+                      >Mot de passe</label
+                    >
+                  </div>
+
+                  <!-- Checkbox -->
+                  <div class="form-check d-flex justify-content-start mb-4">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="form1Example3"
+                    />
+                    <label class="form-check-label" for="form1Example3">
+                      Enregistrer le mot de passe
+                    </label>
+                  </div>
+
+                  <button class="button" type="submit">Connexion</button>
+                  <button class="button" (click)="onRegister()">
+                    S'inscrire
+                  </button>
+
+                  <hr class="my-4" />
+
+                  <div>
+                    <button
+                      class="loginBtn loginBtn--facebook"
+                      (click)="loginWithFacebook()"
+                    >
+                      Login with Facebook
+                    </button>
+                    <hr class="my-4" />
+
+                    <button class="loginBtnE" id="buttonDiv"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer>
+          <div class="container">
+            <div class="footer-left">
+              <p>&copy; 2023 Entreprise de ThéTopTop. Tous droits réservés.</p>
+            </div>
+            <div class="footer-right">
+              <p>
+                Politique de confidentialité | Mentions légales | Politique des
+                cookies
+              </p>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </form>
+  </body>
+</html>

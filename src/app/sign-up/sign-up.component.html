@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="keywords"
+      content="concours de thé, jeu de thé, thé, concours"
+    />
+    <meta
+      name="description"
+      content="Participez à notre jeu de concours de thé pour gagner des cadeaux incroyables."
+    />
+    <title>Beautiful thé de thé with Menu thé</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light custom-bg fixed-top">
+      <div class="container">
+        <a class="navbar-brand custom-color">Jeu Concours de Thé</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link custom-color" (click)="ondebut()">Acceuil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link custom-color" (click)="onLogin()"
+                >Se connecter</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br />
+
+    <section>
+      <div
+        class="modal fade"
+        id="exampleModalCenter"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title" id="exampleModalLongTitle">
+                VOUS AVEZ UN PROBLÈME !
+              </h1>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true" (click)="onCloseButtonClick()"
+                  >&times;</span
+                >
+              </button>
+            </div>
+            <div class="modal-body">
+              Salut, votre email est déjà inscrit. Veuillez utiliser une autre
+              adresse email ou vous diriger vers la page de connexion
+            </div>
+            <div class="modal-footer">
+              <button
+                (click)="onCloseButtonClick()"
+                type="button"
+                class="btn btn-secondary"
+              >
+                QUITTER
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <form
+          class="example-form"
+          [formGroup]="UserRegistrationForm"
+          (ngSubmit)="onSubmit()"
+        >
+          <div style="margin-top: 10%">
+            <div
+              class="row d-flex justify-content-center align-items-center h-100"
+            >
+              <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 3rem">
+                  <div class="eight">
+                    <h1>Inscription utilisateur</h1>
+                  </div>
+                  <div class="card-body p-5 text-center">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                          style="width: 100%"
+                        >
+                          <mat-label>Nom</mat-label>
+                          <input
+                            matInput
+                            placeholder="Nom"
+                            formControlName="nom"
+                          />
+                        </mat-form-field>
+                      </div>
+
+                      <div class="col-md-6">
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                          style="width: 100%"
+                        >
+                          <mat-label>Prenom</mat-label>
+                          <input
+                            matInput
+                            placeholder="Prenom"
+                            formControlName="prenom"
+                          />
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <mat-form-field
+                          appearance="outline"
+                          style="width: 100%"
+                        >
+                          <mat-label> Genre</mat-label>
+                          <mat-select formControlName="genre">
+                            <mat-option
+                              *ngFor="let genre of genreValues"
+                              [value]="genre.value"
+                            >
+                              {{ genre.name }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+
+                      <div class="col-md-6">
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                          style="width: 100%"
+                        >
+                          <mat-label>Email</mat-label>
+                          <input
+                            matInput
+                            placeholder="Email"
+                            formControlName="email"
+                          />
+                        </mat-form-field>
+                      </div>
+
+                      <div class="col-md-6">
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                          style="width: 100%"
+                        >
+                          <mat-label>Telephone</mat-label>
+                          <input
+                            matInput
+                            placeholder="Telephone"
+                            formControlName="telephone"
+                          />
+                        </mat-form-field>
+                      </div>
+
+                      <div class="col-md-6">
+                        <mat-form-field
+                          class="example-full-width"
+                          appearance="outline"
+                          style="width: 100%"
+                        >
+                          <mat-label>Mot de passe</mat-label>
+                          <input
+                            matInput
+                            placeholder="Password"
+                            formControlName="password"
+                          />
+                        </mat-form-field>
+                      </div>
+                    </div>
+
+                    <button class="button" type="submit">Inscription</button>
+
+                    <button class="button" (click)="redemarrerPage()">
+                      Effacer
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </body>
+  <footer>
+    <div class="container">
+      <div class="footer-left">
+        <p>&copy; 2023 Entreprise de ThéTopTop. Tous droits réservés.</p>
+      </div>
+      <div class="footer-right">
+        <p>
+          Politique de confidentialité | Mentions légales | Politique des
+          cookies
+        </p>
+      </div>
+    </div>
+  </footer>
+</html>

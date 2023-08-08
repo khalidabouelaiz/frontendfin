@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta name="keywords" content="concours de thé, jeu de thé, thé, concours" />
+  <meta
+    name="description"
+    content="Participez à notre jeu de concours de thé pour gagner des cadeaux incroyables."
+  />
+  <title>the tip top</title>
+  <header class="navbar navbar-expand-lg navbar-light custom-bg">
+    <div class="container">
+      <h1 class="navbar-brand">
+        <span>Introduction</span>
+        <span>--&gt;</span>
+        <span class="active">Etape 1</span>
+        <span>--&gt;</span>
+        <span>Etape 2</span>
+      </h1>
+      <button class="btn btn-primary custom-bgb" (click)="deco()">
+        Déconnexion
+      </button>
+    </div>
+  </header>
+
+  <div
+    class="modal fade"
+    id="exampleModalCenter"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="exampleModalLongTitle">
+            VOUS AVEZ UN PROBLÈME !!!!
+          </h1>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true" (click)="onCloseButtonClick()"
+              >&times;</span
+            >
+          </button>
+        </div>
+        <div class="modal-body">
+          SALUT, VOTRE NUMÉRO DE TICKET NE MARCHE PAS. VEUILLEZ RÉESSAYER
+          ATTENTIVEMENT. AU REVOIR.
+        </div>
+        <div class="modal-image">
+          <img
+            class="img-responsive"
+            [src]="bonnec"
+            alt="bonne chance pour ton thé"
+          />
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="onCloseButtonClick()"
+          >
+            Fermer
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <body>
+    <div class="TE">
+      <div class="subscribe-box">
+        <h2>Numero ticket</h2>
+        <form class="subscribe" #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+          <input
+            type="number"
+            maxlength="10"
+            name="numero"
+            placeholder="veuillez entrer votre numero de ticket"
+            ngModel
+          />
+          <button type="submit" value="LANCER">
+            <span>Subscribe</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <footer>© 2023 Entreprise de ThéTopTop. Tous droits réservés.</footer>
+</html>

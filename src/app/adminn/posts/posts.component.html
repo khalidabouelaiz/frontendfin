@@ -1,0 +1,24 @@
+<div *ngIf="lotss.length; else noRecord">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Description</th>
+        <th scope="col">Reception</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let lot of lotss; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ lot.nom }}</td>
+        <td>{{ lot.description }}</td>
+        <td>{{ lot.reception }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noRecord>
+  <div>client n'a pas encore joué</div>
+</ng-template>

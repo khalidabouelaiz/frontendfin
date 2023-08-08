@@ -1,0 +1,129 @@
+<div>
+  <app-widget-area></app-widget-area>
+</div>
+<br />
+<mat-divider></mat-divider>
+<br />
+<div>
+  <app-widget-bar></app-widget-bar>
+</div>
+
+<br />
+<mat-divider></mat-divider>
+<br />
+<div>
+  <h2>Ajouter ticket</h2>
+  <div class="submit-form">
+    <div class="form-group">
+      <input
+        type="number"
+        class="form-control"
+        id="numTickets"
+        required
+        [(ngModel)]="numTickets"
+        name="numTickets"
+        placeholder="Nombre de tickets à générer"
+      />
+    </div>
+    <button (click)="generateTickets()" class="btn btn-success">Générer</button>
+  </div>
+</div>
+
+<br />
+<mat-divider></mat-divider>
+<br />
+
+<div>
+  <table
+    mat-table
+    [dataSource]="userpag"
+    multiTemplateDataRows
+    class="mat-elevation-z8"
+  >
+    <ng-container matColumnDef="nom">
+      <th mat-header-cell *matHeaderCellDef>Nom</th>
+      <td mat-cell *matCellDef="let element">{{ element.nom }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="telephone">
+      <th mat-header-cell *matHeaderCellDef>Telephone</th>
+      <td mat-cell *matCellDef="let element">{{ element.telephone }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="genre">
+      <th mat-header-cell *matHeaderCellDef>Genre</th>
+      <td mat-cell *matCellDef="let element">{{ element.genre }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="supp">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <i
+          class="material-icons"
+          placement="bottom"
+          container="body"
+          ngbTooltip="Delete user"
+          (click)="onDeleteUser(element._id)"
+          >delete</i
+        >
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="mailing">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <i class="material-icons" (click)="onSendMail(element.email)"
+          >outgoing_mail</i
+        >
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="expandedDetail">
+      <td
+        mat-cell
+        *matCellDef="let element"
+        [attr.colspan]="columnsToDisplay.length"
+      >
+        <div
+          class="example-element-detail"
+          [@detailExpand]="
+            element == expandedElement ? 'expanded' : 'collapsed'
+          "
+        >
+          <app-posts
+            *ngIf="expandedElement == element"
+            [lots]="lots"
+          ></app-posts>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr
+      mat-row
+      *matRowDef="let element; columns: columnsToDisplay"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandElement(element)"
+    ></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: ['expandedDetail']"
+      class="example-detail-row"
+    ></tr>
+  </table>
+  <mat-paginator
+    [length]="length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="onPageChanged($event)"
+  >
+  </mat-paginator>
+</div>

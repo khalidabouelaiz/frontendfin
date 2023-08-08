@@ -1,0 +1,51 @@
+<mat-nav-list>
+  <div class="profile-card">
+    <div class="header">
+      <h2>{{ nom }}</h2>
+      <h4>{{ email }}</h4>
+    </div>
+
+    <img
+      src="https://w1.pngwing.com/pngs/743/500/png-transparent-circle-silhouette-logo-user-user-profile-green-facial-expression-nose-cartoon.png"
+      alt="Admin"
+    />
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Nombre de fois</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let lot of lotCounts; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ lot.nom }}</td>
+          <td>{{ lot.count }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="container">
+      <h2>Créer un compte Employeur</h2>
+      <form [formGroup]="employeurForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="nom">Nom:</label>
+          <input type="text" class="form-control" formControlName="nom" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" formControlName="email" />
+        </div>
+        <div class="form-group">
+          <label for="password">Mot de passe:</label>
+          <input
+            type="password"
+            class="form-control"
+            formControlName="password"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Créer le compte</button>
+      </form>
+    </div>
+  </div>
+</mat-nav-list>

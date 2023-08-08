@@ -1,0 +1,110 @@
+.custom-bg {
+  background-color: #5e493a;
+}
+body {
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  background-image: url('https://static6.depositphotos.com/1038117/598/i/600/depositphotos_5981198-stock-photo-tea-plantation-cameron-highlands-malaysia.jpg');
+  background-size: cover;
+  border: 24px;
+  size: 100%;
+  background-size: cover;
+}
+.custom-bgb {
+  background-color: red;
+}
+.titre {
+  font-size: 50px; /* Taille du texte du titre */
+  font-weight: bold; /* Gras */
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #5e493a;
+  color: #f8f4f0;
+  padding: 1rem;
+}
+.row {
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+  flex-grow: 1;
+  text-align: center;
+}
+
+h1 span {
+  padding: 10px;
+}
+
+h1 span.active {
+  background-color: #333;
+  color: #fff;
+  border-radius: 50%;
+}
+footer {
+  background-color: #5e493a;
+  color: #ffffff;
+
+  font-size: 0.5cm;
+  text-align: center;
+}
+.header-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: #e74c3c;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.header-button:hover {
+  background-color: #c0392b;
+}
+.comm {
+  align-items: center;
+}
+.button-90 {
+  color: #fff;
+  padding: 35px 45px;
+  border-radius: 100px;
+  background-color: #4c43cd;
+  background-image: radial-gradient(
+      93% 87% at 87% 89%,
+      rgba(0, 0, 0, 0.23) 0%,
+      transparent 86.18%
+    ),
+    radial-gradient(
+      66% 87% at 26% 20%,
+      rgba(255, 255, 255, 0.41) 0%,
+      rgba(255, 255, 255, 0) 69.79%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  box-shadow: 2px 19px 31px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+  cursor: pointer;
+}

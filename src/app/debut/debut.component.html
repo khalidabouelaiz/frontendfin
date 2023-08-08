@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="concours de thé, jeu de thé, thé, concours"
+    />
+    <meta
+      name="description"
+      content="Participez à notre jeu de concours de thé pour gagner des cadeaux incroyables."
+    />
+    <title>The Tip Top</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light custom-bg fixed-top">
+      <div class="container">
+        <a class="navbar-brand custom-color">Jeu Concours de Thé</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link custom-color" (click)="onLog()"
+                >Se connecter</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link custom-color" (click)="onInsc()"
+                >Inscription</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link custom-color" (click)="onabout()">A propos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br />
+
+    <main>
+      <section class="hero">
+        <h1>Participez pour avoir la chance de gagner un an de thé d'une</h1>
+
+        <h1>valeur de 360€ !!</h1>
+
+        <p>
+          Participez dès maintenant à notre jeu concours pour tenter de
+          remporter une année de thé d'une valeur de 360€ ! Ne manquez pas cette
+          opportunité et inscrivez-vous dès maintenant pour tenter votre chance
+          .
+        </p>
+        <a (click)="onInsc()" class="button">Inscrivez-vous maintenant !</a>
+      </section>
+
+      <section class="features">
+        <h2>Pourquoi participer ?</h2>
+        <ul>
+          <li>
+            Participez pour avoir la chance de remporter un magnifique lot
+            comprenant un coffret découverte d'une valeur de 69€, un coffret
+            découverte d'une valeur de 39€, une boite de 100g d'un thé
+            signature, une boite de 100g d'un thé détox ou d'infusion, ainsi
+            qu'un infuseur à thé !
+          </li>
+          <li>Découvrez notre sélection de thés exceptionnels.</li>
+          <li>Recevez des offres exclusives et des promotions.</li>
+          <li>Apprenez-en plus sur l'histoire du thé.</li>
+        </ul>
+      </section>
+      <div class="aze" style="overflow: auto">
+        <div class="azre">
+          <img class="azre1" type="image" [src]="det" alt="detox de thé" />
+          <span class="azre-title">Detox de thé</span>
+        </div>
+        <div class="azre">
+          <img class="azre2" [src]="six" alt="bon d'achat de thé 69 euro" />
+          <span class="azre-title">Bon d'achat de thé 69 euro</span>
+        </div>
+        <div class="azre">
+          <img class="azre3" [src]="sign" alt="signature de thé" />
+          <span class="azre-title">Signature de thé</span>
+        </div>
+        <div class="azre">
+          <img class="azre4" [src]="troi" alt="bon d'achat de thé 39 euro" />
+          <span class="azre-title">Bon d'achat de thé 39 euro</span>
+        </div>
+        <div class="azre">
+          <img class="azre5" [src]="infus" alt="infussion de thé" />
+          <span class="azre-title">Infusion de thé</span>
+        </div>
+      </div>
+
+      <section class="testimonials">
+        <h2>Les gagnants précédents témoignent</h2>
+        <ul>
+          <li>
+            <img [src]="hom" alt="Témoignage 1" />
+            <p>
+              "Je suis ravi d'avoir gagné un an d'une valeur de 360€ de thé
+              gratuit ! Je suis devenu un fan inconditionnel de la sélection de
+              thés de cette entreprise."
+            </p>
+            <cite>John Doe</cite>
+          </li>
+          <li>
+            <img [src]="fem" alt="Témoignage 2" />
+            <p>
+              "Je ne connaissais pas cette entreprise avant de participer au jeu
+              concours. Maintenant, je suis un client fidèle et je recommande
+              vivement leurs thés."
+            </p>
+            <cite>Cloee Doe</cite>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-left">
+          <p>&copy; 2023 Entreprise de ThéTopTop. Tous droits réservés.</p>
+        </div>
+        <div class="footer-right">
+          <p>
+            Politique de confidentialité | Mentions légales | Politique des
+            cookies
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

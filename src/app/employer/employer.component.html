@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="concours de thé, jeu de thé, thé, concours"
+    />
+    <meta
+      name="description"
+      content="Participez à notre jeu de concours de thé pour gagner des cadeaux incroyables."
+    />
+    <title>The Tip Top</title>
+  </head>
+
+  <body>
+    <header>
+      <button (click)="onLogin()">Déconnexion</button>
+    </header>
+    <div>
+      <h2>tickets</h2>
+      <ng-container *ngFor="let ticket of tickets">
+        <div>
+          <p>numero ticket: {{ ticket.numeroT }}</p>
+
+          <p>
+            Utilisé:
+            <span *ngIf="ticket.statusT === 'status'">Non</span>
+            <span *ngIf="ticket.statusT === 'played'">oui</span>
+          </p>
+
+          <hr />
+          <button (click)="deleteTicket(ticket._id)">Supprimer</button>
+        </div>
+      </ng-container>
+    </div>
+
+    <h2>Clients</h2>
+    <div class="container">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Numéro de téléphone</th>
+            <th>Lots</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.nom }}</td>
+            <td>{{ user.prenom }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.telephone }}</td>
+            <td>
+              <ul class="list-group">
+                <ng-container *ngIf="user.idLot.length > 0; else noLots">
+                  <li
+                    class="list-group-item"
+                    *ngFor="let lot of user.idLot"
+                    [ngClass]="{
+                      'list-group-item-danger': lot.joue,
+                      'list-group-item-success': !lot.joue
+                    }"
+                  >
+                    {{ lot.nom }}
+                  </li>
+                </ng-container>
+                <ng-template #noLots>
+                  <li class="list-group-item list-group-item-danger">
+                    Le joueur n'a pas encore joué
+                  </li>
+                </ng-template>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      <p>© 2023 Entreprise de ThéTopTop. Tous droits réservés.</p>
+    </footer>
+  </body>
+</html>

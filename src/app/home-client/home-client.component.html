@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+  <meta name="keywords" content="concours de thé, jeu de thé, thé, concours" />
+  <meta
+    name="description"
+    content="Participez à notre jeu de concours de thé pour gagner des cadeaux incroyables."
+  />
+
+  <div
+    class="modal fade"
+    id="exampleModalCenter"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img style="width: 102%" [src]="felici" alt="felicitation du thé" z />
+        </div>
+        <div class="modal-body">
+          tu as gagner un infuseur à thé (Vous recevrez le cadeau par email
+          après confirmation par l'administrateur )
+        </div>
+        <img class="img-responsive" [src]="infus" alt="infusion thé" />
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+            (click)="onhome()"
+          >
+            Quitter
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="modal fade"
+    id="exampleModalCenter1"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img style="width: 102%" [src]="felici" alt="felictation de thé" />
+        </div>
+        <div class="modal-body">
+          tu as gagner une boite de 100g d’un thé détox ou d’infusion (Vous
+          recevrez le cadeau par email après confirmation par l'administrateur )
+        </div>
+        <img class="img-responsive" [src]="det" alt="detox de thé" />
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+            (click)="onhome()"
+          >
+            Quitter
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="modal fade"
+    id="exampleModalCenter2"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img style="width: 102%" [src]="felici" />
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          tu as gagner une boite de 100g d’un thé signature (Vous recevrez le
+          cadeau par email après confirmation par l'administrateur)
+        </div>
+        <img class="img-responsive" [src]="sign" alt="signature de thé" />
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+            (click)="onhome()"
+          >
+            Quitter
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="modal fade"
+    id="exampleModalCenter3"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img style="width: 102%" [src]="felici" />
+        </div>
+        <div class="modal-body">
+          tu as gagner un coffret découverte d’une valeur de 39€ (Vous recevrez
+          le cadeau par email après confirmation par l'administrateur )
+        </div>
+        <img class="img-responsive" [src]="troi" alt="" />
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+            (click)="onhome()"
+          >
+            Quitter
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="modal fade"
+    id="exampleModalCenter4"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img style="width: 102%" [src]="felici" />
+        </div>
+        <div class="modal-body">
+          tu as gagner un coffret découverte d’une valeur de 69€ (Vous recevrez
+          le cadeau par email après confirmation par l'administrateur)
+        </div>
+        <img
+          class="img-responsive"
+          [src]="six"
+          alt="bon d achat de thé valeur de 69 "
+        />
+
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+            (click)="onhome()"
+          >
+            Quitter
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="modal fade"
+    id="exampleModalCenter5"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="exampleModalLongTitle">
+            PROOBLEEMMEEE !!!!!
+          </h1>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <img class="img-responsive" [src]="term" alt="term de thé" />
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+            onclick="onhome()"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <body>
+    <div class="center-container">
+      <div class="input-container">
+        <span class="azzz">
+          <input
+            class="azre1"
+            type="image"
+            [src]="mauve"
+            alt="image"
+            (click)="myFunc()"
+          />
+        </span>
+        <span class="azzz">
+          <input
+            type="image"
+            [src]="blance"
+            alt="image"
+            class="azre2"
+            (click)="myFunc()"
+          />
+        </span>
+        <span class="azzz">
+          <input
+            type="image"
+            [src]="rouge"
+            alt="image"
+            class="azre3"
+            (click)="myFunc()"
+          />
+        </span>
+        <span class="azzz">
+          <input
+            type="image"
+            [src]="noir"
+            alt="image"
+            class="azre4"
+            (click)="myFunc()"
+          />
+        </span>
+        <span class="azzz">
+          <input
+            type="image"
+            [src]="gold"
+            alt="image"
+            class="azre5"
+            (click)="myFunc()"
+          />
+        </span>
+        <span class="azzz">
+          <input
+            class="azre1"
+            type="image"
+            [src]="mauve"
+            alt="image"
+            (click)="myFunc()"
+          />
+        </span>
+        <span class="azzz">
+          <input
+            type="image"
+            [src]="blance"
+            alt="image"
+            class="azre2"
+            (click)="myFunc()"
+          />
+        </span>
+        <span class="azzz">
+          <input
+            type="image"
+            [src]="rouge"
+            alt="image"
+            class="azre3"
+            (click)="myFunc()"
+          />
+        </span>
+        <span class="azzz">
+          <input
+            type="image"
+            [src]="noir"
+            alt="image"
+            class="azre4"
+            (click)="myFunc()"
+          />
+        </span>
+      </div>
+    </div>
+  </body>
+</html>

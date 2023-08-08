@@ -1,0 +1,44 @@
+@charset "UTF-8";
+footer {
+  background-color: #5e493a;
+  color: #ffffff;
+  text-align: center;
+  font-size: 0.5cm;
+}
+.custom-bg {
+  background-color: #5e493a;
+}
+.custom-color {
+  color: white !important;
+}
+body {
+  background-image: url('https://static6.depositphotos.com/1038117/598/i/600/depositphotos_5981198-stock-photo-tea-plantation-cameron-highlands-malaysia.jpg');
+  background-size: cover;
+}
+.eight h1 {
+  text-align: center;
+
+  font-size: 26px;
+  letter-spacing: 1px;
+}
+
+section {
+  background-image: url('https://static6.depositphotos.com/1038117/598/i/600/depositphotos_5981198-stock-photo-tea-plantation-cameron-highlands-malaysia.jpg');
+  background-size: cover;
+}
+
+.button {
+  display: inline-block;
+  background-color: #9b786f;
+  color: #f8f4f0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  width: 200px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.button:hover {
+  background-color: #725843;
+}
