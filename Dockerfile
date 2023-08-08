@@ -32,5 +32,5 @@ RUN ng build --base-href
 EXPOSE 4200
 
 # Start Apache web server
-CMD ["ng", "serve"]
+CMD ["npm", "start"]
 
