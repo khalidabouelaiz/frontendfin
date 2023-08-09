@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
 import { Observable } from 'rxjs';
 
-const baseUrl = 'http://13.36.209.217';
-const baseUr = 'http://13.36.209.217/users';
-const url = 'http://13.36.209.217/getLotByIdUser';
+const baseUrl = 'http://34.82.76.246';
+const baseUr = 'http://34.82.76.246/users';
+const url = 'http://34.82.76.246/getLotByIdUser';
 
 @Injectable({
   providedIn: 'root',
