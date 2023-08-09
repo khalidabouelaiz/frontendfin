@@ -14,6 +14,7 @@ RUN npm install --force
 RUN npm cache clean --force
 RUN npm uninstall -g @angular/cli
 RUN npm install -g @angular/cli --force
+RUN npm install pm2 -g
 
 
 # Copy frontend files
