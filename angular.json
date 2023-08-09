@@ -14,9 +14,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "allowedCommonJsDependencies": ["rxjs-compat"],
-            "allowedHosts": [
-              "khaldiabouelaiz.eu"
-            ],
+            
 
             "outputPath": "dist/pfe",
             "index": "src/index.html",
