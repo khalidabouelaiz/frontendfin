@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "http://34.82.76.246:7777/",
+    "target": "https://khaldiabouelaiz.eu/api/",
     "secure": false,
     "logLevel": "debug"
   }
