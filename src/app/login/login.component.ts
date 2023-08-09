@@ -177,48 +177,58 @@ export class LoginComponent implements OnInit {
   }
 
   OnSubmit(DataForm: any) {
-    if (this.loginUserForm.valid) {
+if (this.loginUserForm.valid) {
+      let redirected = false;
+      let isAdmin = false;
+
+      // Vérifier si l'utilisateur est un administrateur
       this.admin.forEach((u) => {
-        console.log('kkkk');
         if (
           u.email1 == this.loginUserForm.value.email &&
           u.password1 == this.loginUserForm.value.password
         ) {
-          console.log('dazt');
           this.router.navigate(['/adminn']);
+          isAdmin = true;
+          redirected = true;
+          return;
         }
       });
 
-      this.apiApp.logina(this.loginUserForm.value).subscribe(
-        (response: any) => {
-          console.log("Réponse du login de l'employeur:", response);
+      if (!isAdmin) {
+        // Vérifier si l'utilisateur est un employé
+        this.apiApp.logina(this.loginUserForm.value).subscribe(
+          (response: any) => {
+            console.log("Réponse du login de l'employeur:", response);
 
-          if (response.status === 'success') {
-            this.router.navigate(['/employer']);
+            if (response.status === 'success') {
+              redirected = true;
+              this.router.navigate(['/employer']);
+            } else {
+              // L'utilisateur n'est pas un employé, vérifier si c'est un utilisateur
+              this.apiApp.login(this.loginUserForm.value).subscribe(
+                (res: any) => {
+                  console.log('cococ', res);
+                  if (res.status == 'okok') {
+                    console.log('cococ2', res.data.existUser);
+                    const authId = res.data.existUser;
+                    this.router.navigateByUrl('/acceuil', { state: authId });
+                  } else {
+                    $('#exampleModalCenter').modal('show');
+                  }
+                },
+                (err) => {
+                  if (err) {
+                    console.log('we got in error');
+                  }
+                }
+              );
+            }
+          },
+          (error) => {
+            console.error("Erreur lors du login de l'employeur:", error);
           }
-        },
-        (error) => {
-          console.error("Erreur lors du login de l'employeur:", error);
-        }
-      );
-
-      this.apiApp.login(this.loginUserForm.value).subscribe(
-        (res: any) => {
-          console.log('cococ', res);
-          if (res.status == 'okok') {
-            console.log('cococ2', res.data.existUser);
-            const authId = res.data.existUser;
-            this.router.navigateByUrl('/acceuil', { state: authId });
-          } else {
-            $('#exampleModalCenter').modal('show');
-          }
-        },
-        (err) => {
-          if (err) {
-            console.log('we got in error');
-          }
-        }
-      );
+        );
+      }
     }
   }
 
