@@ -54,7 +54,7 @@ export class HomeClientComponent implements OnInit {
     $('#exampleModalCenter3').modal('hide');
     $('#exampleModalCenter4').modal('hide');
     $('#exampleModalCenter5').modal('hide');
-    this.router.navigate(['/acceuil']);
+    this.router.navigate(['/login']);
   }
 
   myFunc() {
