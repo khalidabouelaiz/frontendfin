@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "https://khaldiabouelaiz.eu/api/",
+    "target": "http://15.188.59.12/api/",
     "secure": false,
     "logLevel": "debug"
   }
