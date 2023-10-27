@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
 import { Observable } from 'rxjs';
 
-const baseUrl = 'http://34.107.123.45:7777/';
+const baseUrl = 'http://34.107.123.45:7777';
 const baseUr = 'http://34.107.123.45:7777/users';
 const url = 'http://34.107.123.45:7777/getLotByIdUser';
 
