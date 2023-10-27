@@ -39,10 +39,30 @@ export class HomeClientComponent implements OnInit {
   felici: string = 'assets/cadeau/felici.jpeg';
   term: string = 'assets/cadeau/term.png';
 
-  ngOnInit(): void {}
+  ngOnInit(): void {document.addEventListener('mousedown', this.onDocumentClick.bind(this)}
   getUrl() {
     return "url('assets/cadeau/play.jpeg')";
   }
+  onDocumentClick(event: MouseEvent): void {
+ 
+    const modals = document.querySelectorAll('.modal'); 
+    let clickedInsideModal = false;
+
+    
+    modals.forEach(modal => {
+      if (modal.contains(event.target as Node)) {
+        clickedInsideModal = true;
+      }
+    });
+
+    if (!clickedInsideModal) {
+     
+      this.router.navigate(['/acceuil']); 
+    }
+  }
+
+
+
 
   onhome() {
     $('#exampleModalCenter').modal('hide');
