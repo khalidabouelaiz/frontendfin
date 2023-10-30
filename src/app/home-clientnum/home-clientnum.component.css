@@ -7,23 +7,16 @@
   width: 500px;
   height: 500px;
 }
-footer {
-  background-color: #5e493a;
-  color: #ffffff;
-
-  font-size: 0.5cm;
-  text-align: center;
-}
 
 h1 {
-  font-size: 2rem;
+  font-size: auto;
   margin: 0;
   flex-grow: 1;
   text-align: center;
 }
 
 h1 span {
-  padding: 10px;
+  padding: 3.7px;
 }
 .custom-bgb {
   background-color: red;
@@ -58,7 +51,7 @@ body {
 }
 
 .subscribe-box {
-  background: #013723;
+  background: #013705cf;
   font-family: 'Gothic A1', serif;
   padding: 6em 0;
   text-align: center;
@@ -168,4 +161,10 @@ body {
   text-align: center;
   width: 100%;
   border-radius: 5%;
+}
+footer {
+  background-color: #5e493a;
+  color: #ffffff;
+  text-align: center;
+  font-size: 0.5cm;
 }
