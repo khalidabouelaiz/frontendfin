@@ -57,7 +57,7 @@ export class SignUpComponent implements OnInit {
   onregister() {
     this.router.navigate(['/sign-up']);
   }
-  onAboutUS() {
+ onabout() {
     this.router.navigate(['/aboutUS']);
   }
   redemarrerPage() {
