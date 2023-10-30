@@ -17,4 +17,7 @@ export class AboutUsComponent implements OnInit {
   ondebut() {
     this.router.navigate(['/debut']);
   }
+  onRegister() {
+    this.router.navigate(['/sign-up']);
+  }
 }
