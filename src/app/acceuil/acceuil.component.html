@@ -27,11 +27,10 @@
       <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <div class="lead">
           <div class="card1 mb-4 box-shadow">
-            <div class="card-header1">
-              <h4 class="my-0 font-weight-normal">Salut, {{ userName }}</h4>
-            </div>
             <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Historique de vos gain</h4>
+              <h4 class="my-0 font-weight-normal">
+                Salut, {{ userName }}, voici votre historique de vos gains.
+              </h4>
             </div>
             <div class="card-body">
               <ng-container *ngIf="autreVariable.length > 0; else noItems">
