@@ -235,6 +235,9 @@ if (this.loginUserForm.valid) {
   onHome() {
     this.router.navigate(['/home']);
   }
+  onInsc() {
+    this.router.navigate(['/sign-up']);
+  }
 
   onRegister() {
     this.router.navigate(['/sign-up']);
