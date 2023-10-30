@@ -20,7 +20,7 @@ body {
   align-items: center;
   justify-content: center;
 
-  background-image: url('https://static6.depositphotos.com/1038117/598/i/600/depositphotos_5981198-stock-photo-tea-plantation-cameron-highlands-malaysia.jpg');
+  background-image: url('https://anatae.fr/cdn/shop/articles/the-seche-2.jpg?v=1674670046');
   background-size: cover;
   color: #f8f4f0;
   text-align: center;
@@ -33,7 +33,7 @@ body {
 }
 
 .hero p {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-bottom: 2rem;
 }
 
@@ -74,6 +74,7 @@ h2 {
 
 .features li {
   margin-bottom: 1rem;
+  font-size: 1.4rem;
 }
 
 /* Testimonials section */
@@ -124,8 +125,7 @@ h2 {
 .aze {
   display: flex;
   overflow: hidden;
-  background-image: url('https://static6.depositphotos.com/1038117/598/i/600/depositphotos_5981198-stock-photo-tea-plantation-cameron-highlands-malaysia.jpg');
-  background-size: cover;
+  background-color: #f8f4f0;
   position: relative;
 }
 
@@ -144,7 +144,6 @@ h2 {
   border-radius: 100%;
   box-shadow: 0 0 19px rgba(0, 0, 0, 0.5);
   margin: 10px;
- 
 }
 
 .azre-title {
