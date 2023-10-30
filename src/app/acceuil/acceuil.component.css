@@ -33,29 +33,41 @@ body {
   margin-bottom: 8px;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #5e493a;
-  color: #f8f4f0;
-  padding: 1rem;
-}
-
-.row {
-  margin-left: 10%;
-  margin-top: 5%;
-}
-
 h1 {
-  font-size: 2rem;
+  font-size: auto;
   margin: 0;
   flex-grow: 1;
   text-align: center;
 }
 
 h1 span {
-  padding: 10px;
+  padding: 3.7px;
+}
+.custom-bgb {
+  background-color: red;
+}
+h1 span.active {
+  background-color: #333;
+  color: #fff;
+  border-radius: 50%;
+}
+.header-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: #e74c3c;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.header-button:hover {
+  background-color: #c0392b;
 }
 
 .custom-box-shadow {
@@ -93,24 +105,6 @@ footer {
   width: 100%;
 }
 
-.header-button {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  background-color: #e74c3c;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.header-button:hover {
-  background-color: #c0392b;
-}
 
 .comm {
   display: flex;
@@ -123,7 +117,7 @@ footer {
   color: #fff;
   padding: 35px 45px;
   border-radius: 100px;
-  background-color: #4c43cd;
+  background-color: #11a875;
   background-image: radial-gradient(
       93% 87% at 87% 89%,
       rgba(0, 0, 0, 0.23) 0%,
@@ -147,8 +141,8 @@ footer {
 
 .card {
   background-color: #ffebb3;
-  width: 10rem;
-  height: 20rem;
+  width: auto;
+  height: auto;
 
   border-radius: 1rem;
   box-shadow: 0 0 5rem rgba(0, 0, 0, 0.3);
@@ -178,7 +172,7 @@ footer {
 }
 
 .card1 {
-  background-color: rgb(57, 92, 83); /* Couleur de fond de la carte */
+  background-color: #ffebb3; /* Couleur de fond de la carte */
   width: 20rem; /* Largeur de la carte */
   margin: 0 auto; /* Centre la carte horizontalement */
   border-radius: 1rem; /* Bordure arrondie de la carte */
