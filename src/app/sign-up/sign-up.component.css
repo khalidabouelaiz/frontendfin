@@ -11,6 +11,25 @@ footer {
 .custom-color {
   color: white !important;
 }
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Ajustez la taille de l'icône selon vos besoins */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+}
 body {
   background-image: url('https://static6.depositphotos.com/1038117/598/i/600/depositphotos_5981198-stock-photo-tea-plantation-cameron-highlands-malaysia.jpg');
   background-size: cover;
