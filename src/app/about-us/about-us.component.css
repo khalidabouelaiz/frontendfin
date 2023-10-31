@@ -91,4 +91,7 @@ footer {
   color: #ffffff;
   font-size: 0.5cm;
   text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
