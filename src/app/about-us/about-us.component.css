@@ -9,6 +9,10 @@
 .custom-color {
   color: white !important;
 }
+.align-center {
+  display: flex;
+  align-items: center;
+}
 body {
   min-height: 100vh;
   background: url('../../assets/cadeau/acceuilcli.jpg');
