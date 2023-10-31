@@ -2,6 +2,10 @@
 .custom-bg {
   background-color: #5e493a;
 }
+.align-center {
+  display: flex;
+  align-items: center;
+}
 .custom-color {
   color: white !important;
 }
