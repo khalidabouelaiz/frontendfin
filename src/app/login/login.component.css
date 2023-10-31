@@ -14,6 +14,11 @@ body {
   background-size: cover;
 height: ;
 }
+.arriere {
+  background-image: url('https://static6.depositphotos.com/1038117/598/i/600/depositphotos_5981198-stock-photo-tea-plantation-cameron-highlands-malaysia.jpg');
+  background-size: cover;
+}
+
 /* Hero section */
 .hero {
   flex-direction: column;
@@ -48,6 +53,7 @@ height: ;
 }
 
 footer {
+  margin-top: 2rem;
   background-color: #5e493a;
   color: #ffffff;
   text-align: center;
