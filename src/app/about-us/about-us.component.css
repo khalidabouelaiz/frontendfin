@@ -13,6 +13,19 @@
   display: flex;
   align-items: center;
 }
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Ajustez la taille de l'icône selon vos besoins */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
 body {
   min-height: 100vh;
   background: url('../../assets/cadeau/acceuilcli.jpg');
