@@ -12,10 +12,7 @@ body {
   margin: 0;
   padding: 0;
 }
-.align-center {
-  display: flex;
-  align-items: center;
-}
+
 
 .custom-bg {
   background-color: #5e493a;
