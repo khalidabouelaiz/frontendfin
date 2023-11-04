@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "http://34.107.20.179/api/",
+    "target": "http://thethiptopkhalidabouelaiz.eu/api/",
     "secure": false,
     "logLevel": "debug"
   }
