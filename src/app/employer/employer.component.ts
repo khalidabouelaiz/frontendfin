@@ -10,6 +10,7 @@ import { ApiAppService } from '../Service/api-app.service';
 })
 export class EmployerComponent implements OnInit {
   users: any[] = [];
+  searchTerm: string = '';
 
   constructor(
     public router: Router,
@@ -20,9 +21,24 @@ export class EmployerComponent implements OnInit {
   ngOnInit() {
     this.getTickets();
     this.retrieveUsers();
+    this.filteredUsers = this.users.slice();
   }
   tickets: any[] = [];
   lotss: any[] = [];
+  filteredUsers: any[] = [];
+  updateFilteredUsers() {
+    if (this.searchTerm) {
+      this.filteredUsers = (this.users || []).filter(
+        (user) =>
+          user &&
+          user.nom &&
+          user.nom.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    } else {
+      this.filteredUsers = this.users; // Utilise une copie de la liste complète si searchTerm est vide
+    }
+    console.log(this.filteredUsers);
+  }
 
   deleteTicket(ticketId: string) {
     this.apiApp.deleteTicket(ticketId).subscribe(
