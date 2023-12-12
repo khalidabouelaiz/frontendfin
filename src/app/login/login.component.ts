@@ -1,4 +1,10 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  NgZone,
+  ElementRef,
+  HostListener,
+} from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -35,7 +41,13 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   socialUser!: SocialUser;
   isLoggedin?: boolean = undefined;
-
+  @HostListener('document:click', ['$event'])
+  closeNavbarOnOutsideClick(event: Event): void {
+    const navbar = this.el.nativeElement.querySelector('.navbar-collapse.show');
+    if (navbar && !navbar.contains(event.target as Node)) {
+      navbar.classList.remove('show');
+    }
+  }
   decodeToken: any;
   helper = new JwtHelperService();
   loginUserForm: FormGroup;
@@ -50,7 +62,8 @@ export class LoginComponent implements OnInit {
     private authService: SocialAuthService,
     private zone: NgZone,
     private formBuilder: FormBuilder,
-    private socialAuthService: SocialAuthService
+    private socialAuthService: SocialAuthService,
+    private el: ElementRef
   ) {
     console.log(this.isLoggedin);
     this.loginUserForm = new FormGroup({
@@ -177,7 +190,7 @@ export class LoginComponent implements OnInit {
   }
 
   OnSubmit(DataForm: any) {
-if (this.loginUserForm.valid) {
+    if (this.loginUserForm.valid) {
       let redirected = false;
       let isAdmin = false;
 
