@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
 import { Router, UrlTree, ActivatedRoute } from '@angular/router';
 import { ApiAppService } from '../Service/api-app.service';
 var nbr = document.forms.item;
@@ -9,7 +9,14 @@ declare var $: any;
   styleUrls: ['./debut.component.css'],
 })
 export class DebutComponent implements OnInit {
-  constructor(public router: Router) {}
+  constructor(public router: Router, private el: ElementRef) {}
+  @HostListener('document:click', ['$event'])
+  closeNavbarOnOutsideClick(event: Event): void {
+    const navbar = this.el.nativeElement.querySelector('.navbar-collapse.show');
+    if (navbar && !navbar.contains(event.target as Node)) {
+      navbar.classList.remove('show');
+    }
+  }
   authId: string;
   ngOnInit(): void {}
 
