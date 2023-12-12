@@ -3,6 +3,7 @@ import { ApiAppService } from '../../Service/api-app.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AdminComponent } from '../../admin/admin.component';
 import { MatTableDataSource } from '@angular/material/table';
+
 import {
   animate,
   state,
@@ -12,7 +13,20 @@ import {
 } from '@angular/animations';
 import { PageEvent } from '@angular/material/paginator';
 import { MailModalComponent } from '../../mail/mail.component';
+import { Pipe, PipeTransform } from '@angular/core';
 
+@Pipe({
+  name: 'filterTickets',
+})
+export class FilterTicketsPipe implements PipeTransform {
+  transform(tickets: any[], ticketFilter: string): any[] {
+    if (!tickets || !ticketFilter) {
+      return tickets;
+    }
+
+    return tickets.filter((ticket) => ticket.numeroT.includes(ticketFilter));
+  }
+}
 interface User {
   _id?: any;
   nom?: string;
@@ -83,6 +97,11 @@ export class DashbordComponent implements OnInit {
 
   ngOnInit(): void {
     this.retrieveUsers();
+    this.getTickets();
+    this.initializeFilteredUsers();
+  }
+  initializeFilteredUsers(): void {
+    this.filteredUsers = [...this.users]; // Copie la liste complète dans filteredUsers
   }
 
   retrieveUsers(): void {
@@ -94,6 +113,17 @@ export class DashbordComponent implements OnInit {
       },
       error: (e) => console.error(e),
     });
+  }
+  updateFilteredUsers() {
+    console.log('Filter:', this.clientNameFilter);
+
+    // Si clientNameFilter est vide, affiche tous les utilisateurs, sinon, filtre
+    this.filteredUsers = this.clientNameFilter
+      ? (this.users || []).filter(
+          (user) => user && user.nom && user.nom.includes(this.clientNameFilter)
+        )
+      : [...this.users];
+    console.log('Filtered Users:', this.filteredUsers);
   }
 
   expandElement(element: any) {
@@ -184,4 +214,50 @@ export class DashbordComponent implements OnInit {
     const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
     return randomNumber.toString();
   }
+  tickets: any[] = [];
+  lotss: any[] = [];
+
+  deleteTicket(ticketId: string) {
+    this.apiApp.deleteTicket(ticketId).subscribe(
+      (res: any) => {
+        if (res.status === 1) {
+          console.log('Ticket supprimé avec succès');
+          // Actualisez la liste des tickets après la suppression réussie
+          this.getTickets();
+        } else {
+          console.log('Erreur lors de la suppression du ticket');
+        }
+      },
+      (error) => {
+        console.log("Erreur lors de la communication avec l'API");
+      }
+    );
+  }
+
+  ticketFilter: string = '';
+
+  filteredTickets: any[] = [];
+  getTickets() {
+    this.apiApp.getAllTickets().subscribe(
+      (res: any) => {
+        if (res.status === 'ok') {
+          this.tickets = res.data;
+          this.filteredTickets = this.tickets;
+          console.log(this.tickets);
+        }
+      },
+      (error) => {
+        console.log("Erreur lors de la communication avec l'API");
+      }
+    );
+  }
+  updateFilteredTickets() {
+    this.filteredTickets = this.ticketFilter
+      ? this.tickets.filter((ticket) =>
+          ticket.numeroT.includes(this.ticketFilter)
+        )
+      : this.tickets;
+  }
+  clientNameFilter: string = '';
+  filteredUsers: User[] = [];
 }
