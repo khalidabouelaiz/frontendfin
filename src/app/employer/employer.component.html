@@ -18,25 +18,22 @@
     <header>
       <button (click)="onLogin()">Déconnexion</button>
     </header>
-    <div>
-      <h2>tickets</h2>
-      <ng-container *ngFor="let ticket of tickets">
-        <div>
-          <p>numero ticket: {{ ticket.numeroT }}</p>
-
-          <p>
-            Utilisé:
-            <span *ngIf="ticket.statusT === 'status'">Non</span>
-            <span *ngIf="ticket.statusT === 'played'">oui</span>
-          </p>
-
-          <hr />
-          <button (click)="deleteTicket(ticket._id)">Supprimer</button>
-        </div>
-      </ng-container>
-    </div>
 
     <h2>Clients</h2>
+    <div class="row justify-content-center mt-3">
+      <div class="col-md-6">
+        <div class="input-group">
+          <span class="input-group-text">Rechercher par nom :</span>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="searchTerm"
+            placeholder="Entrez le nom"
+            (input)="updateFilteredUsers()"
+          />
+        </div>
+      </div>
+    </div>
     <div class="container">
       <table class="table table-striped">
         <thead class="thead-dark">
@@ -49,33 +46,68 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let user of users">
-            <td>{{ user.nom }}</td>
-            <td>{{ user.prenom }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.telephone }}</td>
-            <td>
-              <ul class="list-group">
-                <ng-container *ngIf="user.idLot.length > 0; else noLots">
-                  <li
-                    class="list-group-item"
-                    *ngFor="let lot of user.idLot"
-                    [ngClass]="{
-                      'list-group-item-danger': lot.joue,
-                      'list-group-item-success': !lot.joue
-                    }"
-                  >
-                    {{ lot.nom }}
-                  </li>
-                </ng-container>
-                <ng-template #noLots>
-                  <li class="list-group-item list-group-item-danger">
-                    Le joueur n'a pas encore joué
-                  </li>
-                </ng-template>
-              </ul>
-            </td>
-          </tr>
+          <ng-container
+            *ngIf="filteredUsers && filteredUsers.length > 0; else showAllUsers"
+          >
+            <!-- Affiche les utilisateurs filtrés -->
+            <tr *ngFor="let user of filteredUsers">
+              <td>{{ user.nom }}</td>
+              <td>{{ user.prenom }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.telephone }}</td>
+              <td>
+                <ul class="list-group">
+                  <ng-container *ngIf="user.idLot.length > 0; else noLots">
+                    <li
+                      class="list-group-item"
+                      *ngFor="let lot of user.idLot"
+                      [ngClass]="{
+                        'list-group-item-danger': lot.joue,
+                        'list-group-item-success': !lot.joue
+                      }"
+                    >
+                      {{ lot.nom }}
+                    </li>
+                  </ng-container>
+                  <ng-template #noLots>
+                    <li class="list-group-item list-group-item-danger">
+                      Le joueur n'a pas encore joué
+                    </li>
+                  </ng-template>
+                </ul>
+              </td>
+            </tr>
+          </ng-container>
+          <ng-template #showAllUsers>
+            <!-- Affiche la liste complète des utilisateurs -->
+            <tr *ngFor="let user of users">
+              <td>{{ user.nom }}</td>
+              <td>{{ user.prenom }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.telephone }}</td>
+              <td>
+                <ul class="list-group">
+                  <ng-container *ngIf="user.idLot.length > 0; else noLots">
+                    <li
+                      class="list-group-item"
+                      *ngFor="let lot of user.idLot"
+                      [ngClass]="{
+                        'list-group-item-danger': lot.joue,
+                        'list-group-item-success': !lot.joue
+                      }"
+                    >
+                      {{ lot.nom }}
+                    </li>
+                  </ng-container>
+                  <ng-template #noLots>
+                    <li class="list-group-item list-group-item-danger">
+                      Le joueur n'a pas encore joué
+                    </li>
+                  </ng-template>
+                </ul>
+              </td>
+            </tr>
+          </ng-template>
         </tbody>
       </table>
     </div>
