@@ -34,9 +34,16 @@
 <br />
 
 <div>
+  <span>Rechercher par nom de client :</span>
+  <input
+    type="text"
+    [(ngModel)]="clientNameFilter"
+    (input)="updateFilteredUsers()"
+    placeholder="Nom de client"
+  />
   <table
     mat-table
-    [dataSource]="userpag"
+    [dataSource]="clientNameFilter ? filteredUsers : userpag"
     multiTemplateDataRows
     class="mat-elevation-z8"
   >
@@ -119,6 +126,7 @@
       class="example-detail-row"
     ></tr>
   </table>
+
   <mat-paginator
     [length]="length"
     [pageSize]="pageSize"
@@ -126,4 +134,38 @@
     (page)="onPageChanged($event)"
   >
   </mat-paginator>
+</div>
+<div>
+  <h2>tickets</h2>
+
+  <div class="ticket-filter">
+    <span>Rechercher par numéro :</span>
+    <input
+      type="text"
+      [(ngModel)]="ticketFilter"
+      (input)="updateFilteredTickets()"
+      placeholder="Numéro de ticket"
+    />
+  </div>
+
+  <ng-container *ngFor="let ticket of filteredTickets">
+    <div>
+      <p>numero ticket: {{ ticket.numeroT }}</p>
+
+      <p>
+        Utilisé:
+        <span style="background-color: red" *ngIf="ticket.statusT === 'status'"
+          >Non</span
+        >
+        <span
+          style="background-color: green"
+          *ngIf="ticket.statusT === 'played'"
+          >oui</span
+        >
+      </p>
+
+      <hr />
+      <button (click)="deleteTicket(ticket._id)">Supprimer</button>
+    </div>
+  </ng-container>
 </div>
