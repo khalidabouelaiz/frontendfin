@@ -25,6 +25,11 @@ footer {
   white-space: nowrap;
   direction: ltr;
 }
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
 
 .align-center {
   display: flex;
