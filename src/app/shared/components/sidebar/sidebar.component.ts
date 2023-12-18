@@ -57,8 +57,8 @@ export class SidebarComponent implements OnInit {
   }
   getStatusStyle() {
     return {
-      'text-success': this.statusMessage === 'bon',
-      'text-danger': this.statusMessage !== 'bon',
+      'text-success': this.statusMessage !== 'bon',
+      'text-danger': this.statusMessage === 'bon',
     };
   }
 
