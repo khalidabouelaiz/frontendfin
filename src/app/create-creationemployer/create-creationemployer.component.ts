@@ -9,6 +9,7 @@ import { ApiAppService } from 'src/app/Service/api-app.service';
 })
 export class CreateCreationemployerComponent implements OnInit {
   employeurForm: FormGroup;
+  statusMessage: string | null = null;
 
   constructor(
     private formBuilder: FormBuilder,
