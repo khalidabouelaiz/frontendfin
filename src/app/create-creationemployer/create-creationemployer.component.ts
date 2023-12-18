@@ -37,11 +37,13 @@ export class CreateCreationemployerComponent implements OnInit {
     this.apiApp.registerEmployeur(employeurData).subscribe(
       (res) => {
         console.log('Employeur créé avec succès');
+        this.statusMessage = 'Employeur créé avec succès!';
         // Réinitialiser le formulaire après la création réussie
         this.employeurForm.reset();
       },
       (error) => {
         console.log("Erreur lors de la création de l'employeur");
+        this.statusMessage = "Erreur lors de la création de l'employeur";
       }
     );
   }
