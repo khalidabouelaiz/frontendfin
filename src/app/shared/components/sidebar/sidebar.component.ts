@@ -15,6 +15,7 @@ export class SidebarComponent implements OnInit {
   nom: string;
   email: string;
   lotss: any[];
+  statusMessage: string;
   constructor(
     public apiApp: ApiAppService,
     private http: HttpClient,
@@ -45,13 +46,20 @@ export class SidebarComponent implements OnInit {
     this.apiApp.registerEmployeur(employeurData).subscribe(
       (res) => {
         console.log('Employeur créé avec succès');
-        // Réinitialiser le formulaire après la création réussie
+        this.statusMessage = 'Employeur créé avec succès';
         this.employeurForm.reset();
       },
       (error) => {
         console.log("Erreur lors de la création de l'employeur");
+        this.statusMessage = 'Erreur lors de la création de lemployeur';
       }
     );
+  }
+  getStatusStyle() {
+    return {
+      'text-success': this.statusMessage === 'bon',
+      'text-danger': this.statusMessage !== 'bon',
+    };
   }
 
   retrieveAllLots() {
