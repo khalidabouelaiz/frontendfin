@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
   helper = new JwtHelperService();
   loginUserForm: FormGroup;
   user: SocialUser;
-  admin = [{ email1: 'administrateur@hotmail.com', password1: 'Driss123' }];
+  admin = [{ email1: 'administrateur@hotmail.com', password1: 'Admin123' }];
   employerac = [{ email2: 'employer@hotmail.com', password2: '12345678' }];
 
   constructor(
