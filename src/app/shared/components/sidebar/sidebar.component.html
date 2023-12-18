@@ -43,9 +43,22 @@
             class="form-control"
             formControlName="password"
           />
+          <div
+            *ngIf="
+              employeurForm.get('password')?.touched &&
+              employeurForm.get('password')?.hasError('passwordRequirements')
+            "
+            class="error-message"
+          >
+            Le mot de passe doit avoir au moins 8 caractères avec un chiffre ou
+            un caractère spécial.
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary">Créer le compte</button>
-         <div
+
+        <button type="submit" class="btn btn-primary">
+          Créer le compte fqsfq
+        </button>
+        <div
           *ngIf="statusMessage"
           class="status-message"
           [ngClass]="getStatusStyle()"
