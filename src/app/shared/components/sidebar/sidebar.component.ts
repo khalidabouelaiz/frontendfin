@@ -6,6 +6,7 @@ import {
   Validators,
   AbstractControl,
 } from '@angular/forms';
+import { AsyncValidatorFn } from '@angular/forms';
 
 import { HttpClient } from '@angular/common/http';
 
@@ -38,23 +39,34 @@ export class SidebarComponent implements OnInit {
     this.employeurForm = this.formBuilder.group({
       nom: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required, this.passwordValidator],
+      password: [
+        '',
+        Validators.required,
+        [],
+        this.passwordValidatorAsync(), // Utilisation de la méthode passwordValidatorAsync
+      ],
     });
   }
-  passwordValidator(
-    control: AbstractControl
-  ): { [key: string]: boolean } | null {
-    const value: string = control.value || '';
+  passwordValidatorAsync(): AsyncValidatorFn {
+    return (
+      control: AbstractControl
+    ): Promise<{ [key: string]: boolean } | null> => {
+      const value: string = control.value || '';
 
-    // Check if the password has at least 8 characters and contains at least one number
-    if (
-      value.length < 8 ||
-      !/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+|\d+/.test(value)
-    ) {
-      return { passwordRequirements: true };
-    }
-
-    return null;
+      return new Promise((resolve) => {
+        // Votre logique de validation asynchrone ici (si nécessaire)
+        setTimeout(() => {
+          if (
+            value.length < 8 ||
+            !/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+|\d+/.test(value)
+          ) {
+            resolve({ passwordRequirements: true });
+          } else {
+            resolve(null);
+          }
+        }, 500); // Exemple de délai asynchrone simulé (vous pouvez le supprimer si non nécessaire)
+      });
+    };
   }
   onSubmit() {
     if (this.employeurForm.invalid) {
