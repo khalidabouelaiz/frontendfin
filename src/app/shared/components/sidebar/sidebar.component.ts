@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiAppService } from 'src/app/Service/api-app.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  AbstractControl,
+} from '@angular/forms';
 
 import { HttpClient } from '@angular/common/http';
 
@@ -33,8 +38,23 @@ export class SidebarComponent implements OnInit {
     this.employeurForm = this.formBuilder.group({
       nom: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      password: ['', Validators.required, this.passwordValidator],
     });
+  }
+  passwordValidator(
+    control: AbstractControl
+  ): { [key: string]: boolean } | null {
+    const value: string = control.value || '';
+
+    // Check if the password has at least 8 characters and contains at least one number
+    if (
+      value.length < 8 ||
+      !/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+|\d+/.test(value)
+    ) {
+      return { passwordRequirements: true };
+    }
+
+    return null;
   }
   onSubmit() {
     if (this.employeurForm.invalid) {
@@ -57,8 +77,8 @@ export class SidebarComponent implements OnInit {
   }
   getStatusStyle() {
     return {
-      'text-success': this.statusMessage !== 'bon',
       'text-danger': this.statusMessage === 'bon',
+      'text-success': this.statusMessage !== 'bon',
     };
   }
 
